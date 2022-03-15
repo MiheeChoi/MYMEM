@@ -18,8 +18,7 @@ export default makeStyles((theme) => ({
     width: '97%',
     margin: '10px 0',
   },
-  buttonSubmit: {
-    marginTop: '2px',
-    marginBottom: '10px',
+  clearButton: {
+    marginLeft: 'auto',
   },
 }));

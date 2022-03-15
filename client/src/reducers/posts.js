@@ -5,6 +5,11 @@ export default (posts = [], action) => {
       return action.payload;
     case 'CREATE':
       return [...posts, action.payload];
+    case 'UPDATE':
+      //기존 post의 id 와 같다면 업데이트된 post return
+      return posts.map((post) =>
+        post._id === action.payload._id ? action.payload : post
+      );
     default:
       return posts;
   }
