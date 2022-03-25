@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 //서버 에러
 app.use((err, req, res, next) => {
   console.log('Server ERROR!');
-  res.status(err.status || 500).send(err);
+  res.status(err.status || 500).json(err);
 });
 
 //서버 구동
