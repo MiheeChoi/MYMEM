@@ -34,7 +34,7 @@ const Post = ({ post, setCurrentId }) => {
         </Typography>
       </div>
       <CardContent>
-        <Typography className={classes.title} variant='h5' gutterBottom>
+        <Typography className={classes.title} variant='body2' component='p'>
           {post.message}
         </Typography>
       </CardContent>
@@ -48,8 +48,8 @@ const Post = ({ post, setCurrentId }) => {
         </Button>
       </div>
       <div className={classes.details}>
-        <Typography variant='body2' color='textSecondary'>
-          {post.tags.map((tag) => `#${tag}`)}
+        <Typography variant='caption' color='textSecondary'>
+          {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
       <CardActions className={classes.cardActions}>
@@ -61,7 +61,7 @@ const Post = ({ post, setCurrentId }) => {
           }}
         >
           <ThumbUpAltIcon fontSize='small' />
-          Like
+          Like &nbsp;
           {post.likeCount}
         </Button>
         <Button

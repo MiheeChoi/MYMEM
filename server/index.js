@@ -2,12 +2,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import morgan from 'morgan';
-import config from './config/mongo/connect.js';
+import dotenv from 'dotenv';
 
 //router
 import postRouter from './routes/post.js';
 
 const app = express();
+dotenv.config();
 app.set('port', process.env.PORT || 5000);
 
 //공통 미들웨어
@@ -17,11 +18,10 @@ app.use(cors());
 app.use(morgan('dev'));
 
 //몽고DB 연결
-const uri = config.URI;
 mongoose
-  .connect(uri)
+  .connect(process.env.MONGO_URL)
   .then(() => console.log('mongoDB connected!'))
-  .catch((error) => console.log(error.message));
+  .catch((error) => console.log(error));
 
 //라우팅
 app.use('/posts', postRouter);
